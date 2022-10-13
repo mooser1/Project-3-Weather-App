@@ -79,12 +79,12 @@ async function updateUI() {
     const req = await fetch('/all');
     try {
         const allData = await req.json();
-        const lastIndex = allData.length - 1;
+        //const lastIndex = allData.length - 1;
         //console.log(allData);
-        document.getElementById('date').innerHTML = "Today's Date: " + allData[lastIndex].date;
-        document.getElementById('location').innerHTML = "Location: " + allData[lastIndex].zip_code;
-        document.getElementById('temp').innerHTML = "Temperature: " + Math.round(allData[lastIndex].temperature) + ' ' + 'degrees';
-        document.getElementById('content').innerHTML = "How are you felling today?: " + allData[lastIndex].userResponse;
+        document.getElementById('date').innerHTML = "Today's Date: " + allData.date;
+        document.getElementById('location').innerHTML = "Location: " + allData.zip_code;
+        document.getElementById('temp').innerHTML = "Temperature: " + Math.round(allData.temperature) + ' ' + 'degrees';
+        document.getElementById('content').innerHTML = "How are you feeling today?: " + allData.userResponse;
     }
     catch (error) {
         console.log("error", error);
